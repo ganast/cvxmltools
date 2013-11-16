@@ -49,7 +49,7 @@ cvxmltools. If not, see http://www.gnu.org/licenses/.
 <!-- Template for top-level "cv" node -->
 <xsl:template match="/cv">
   <cv>
-	<xsl:attribute name="xsi:noNamespaceSchemaLocation">CVXMLTools-flat.xsd</xsl:attribute>
+	<xsl:attribute name="xsi:noNamespaceSchemaLocation">flat.xsd</xsl:attribute>
 	<xsl:attribute name="date"><xsl:value-of select="@date" /></xsl:attribute>
     <xsl:attribute name="version"><xsl:value-of select="$version" /></xsl:attribute>
     <xsl:attribute name="lang"><xsl:value-of select="$lang" /></xsl:attribute>
