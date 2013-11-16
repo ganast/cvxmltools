@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Copyright © 2013 George Anastassakis (anastas@unipi.gr)
+
+This file is part of cvxmltools.
+
+cvxmltools is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+cvxmltools is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+cvxmltools. If not, see http://www.gnu.org/licenses/.
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:complexType name="versionedValueSet">
+    <xs:sequence>
+		<xs:element name="value" minOccurs="0" maxOccurs="unbounded">
+			<xs:complexType>
+				<xs:simpleContent>
+					<xs:extension base="xs:string">
+						<xs:attribute name="lang" type="xs:string" />
+					</xs:extension>
+				</xs:simpleContent>
+			</xs:complexType>
+		</xs:element>
+	</xs:sequence>
+    <xs:attribute name="version" type="xs:string" />
+</xs:complexType>
+
+<xs:element name="cv">
+	<xs:complexType>
+
+		<xs:sequence>
+
+			<xs:element name="data" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+
+					<xs:all>
+
+						<xs:element name="birthday" type="versionedValueSet" />
+
+						<xs:element name="name" minOccurs="1">
+							<xs:complexType>
+
+								<xs:sequence>
+
+									<xs:element name="firstname" type="versionedValueSet" minOccurs="1" maxOccurs="unbounded" />
+									<xs:element name="lastname" type="versionedValueSet" minOccurs="1" maxOccurs="unbounded" />
+									<xs:element name="suffix" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+									<xs:element name="title" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+
+								</xs:sequence>
+
+							</xs:complexType>
+						</xs:element>
+
+						<xs:element name="address" minOccurs="0">
+							<xs:complexType>
+
+								<xs:sequence>
+
+									<xs:element name="title" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+									<xs:element name="organization" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+									<xs:element name="street" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+									<xs:element name="city" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+									<xs:element name="postcode" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+									<xs:element name="country" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+
+								</xs:sequence>
+
+							</xs:complexType>
+						</xs:element>
+
+						<xs:element name="contact" minOccurs="0">
+							<xs:complexType>
+
+								<xs:sequence>
+
+									<xs:element name="email" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+									<xs:element name="telephone" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+									<xs:element name="homepage" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+
+								</xs:sequence>
+
+							</xs:complexType>
+						</xs:element>
+
+					</xs:all>
+
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="education" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+
+					<xs:sequence>
+
+						<xs:element name="degree" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+
+								<xs:sequence>
+									
+									<xs:element name="title" type="versionedValueSet" minOccurs="1" maxOccurs="unbounded" />
+									<xs:element name="institution" type="versionedValueSet" minOccurs="1" maxOccurs="unbounded" />
+									<xs:element name="date" type="versionedValueSet" minOccurs="1" maxOccurs="unbounded" />
+									<xs:element name="country" type="versionedValueSet" minOccurs="1" maxOccurs="unbounded" />
+									<xs:element name="note" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+
+								</xs:sequence>
+
+							</xs:complexType>
+						</xs:element>					
+					</xs:sequence>
+
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="languages" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+
+					<xs:sequence>
+
+						<xs:element name="language" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+
+								<xs:sequence>
+									
+									<xs:element name="title" type="versionedValueSet" minOccurs="1" maxOccurs="unbounded" />
+									<xs:element name="degree" type="versionedValueSet" minOccurs="1" maxOccurs="unbounded" />
+									<xs:element name="note" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+
+								</xs:sequence>
+
+							</xs:complexType>
+						</xs:element>
+					
+					</xs:sequence>
+
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="section" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+
+					<xs:sequence>
+
+						<xs:element name="title" type="versionedValueSet" minOccurs="1" maxOccurs="1" />
+
+						<xs:element name="item" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+
+								<xs:sequence>
+
+									<xs:element name="start" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+									<xs:element name="end" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+									<xs:element name="data" type="versionedValueSet" minOccurs="1" maxOccurs="unbounded" />
+						
+								</xs:sequence>
+
+							</xs:complexType>
+						</xs:element>
+
+					</xs:sequence>
+
+				</xs:complexType>
+			</xs:element>
+
+		</xs:sequence>
+
+		<xs:attribute name="uri" type="xs:anyURI" />
+
+		<xs:attribute name="date" type="xs:date" use="required" />
+
+	</xs:complexType>
+</xs:element>
+
+</xs:schema>
