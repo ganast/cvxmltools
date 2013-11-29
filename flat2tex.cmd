@@ -1,4 +1,4 @@
-﻿:: Copyright © 2013 George Anastassakis (anastas@unipi.gr)
+:: Copyright � 2013 George Anastassakis (anastas@unipi.gr)
 ::
 :: This file is part of cvxmltools.
 ::

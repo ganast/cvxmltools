@@ -45,7 +45,7 @@ cvxmltools. If not, see http://www.gnu.org/licenses/.
 
 					<xs:all>
 
-						<xs:element name="birthday" type="versionedValueSet" />
+						<xs:element name="birthday" minOccurs="0" type="versionedValueSet" />
 
 						<xs:element name="name" minOccurs="1">
 							<xs:complexType>
@@ -108,11 +108,11 @@ cvxmltools. If not, see http://www.gnu.org/licenses/.
 
 								<xs:sequence>
 									
-									<xs:element name="title" type="versionedValueSet" minOccurs="1" maxOccurs="unbounded" />
-									<xs:element name="institution" type="versionedValueSet" minOccurs="1" maxOccurs="unbounded" />
-									<xs:element name="date" type="versionedValueSet" minOccurs="1" maxOccurs="unbounded" />
-									<xs:element name="country" type="versionedValueSet" minOccurs="1" maxOccurs="unbounded" />
-									<xs:element name="note" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+									<xs:element name="title" type="versionedValueSet" minOccurs="1" maxOccurs="1" />
+									<xs:element name="institution" type="versionedValueSet" minOccurs="1" maxOccurs="1" />
+									<xs:element name="date" type="versionedValueSet" minOccurs="1" maxOccurs="1" />
+									<xs:element name="country" type="versionedValueSet" minOccurs="1" maxOccurs="1" />
+									<xs:element name="note" type="versionedValueSet" minOccurs="0" maxOccurs="1" />
 
 								</xs:sequence>
 
@@ -133,9 +133,9 @@ cvxmltools. If not, see http://www.gnu.org/licenses/.
 
 								<xs:sequence>
 									
-									<xs:element name="title" type="versionedValueSet" minOccurs="1" maxOccurs="unbounded" />
-									<xs:element name="degree" type="versionedValueSet" minOccurs="1" maxOccurs="unbounded" />
-									<xs:element name="note" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
+									<xs:element name="title" type="versionedValueSet" minOccurs="1" maxOccurs="1" />
+									<xs:element name="degree" type="versionedValueSet" minOccurs="1" maxOccurs="1" />
+									<xs:element name="note" type="versionedValueSet" minOccurs="0" maxOccurs="1" />
 
 								</xs:sequence>
 
@@ -159,9 +159,9 @@ cvxmltools. If not, see http://www.gnu.org/licenses/.
 
 								<xs:sequence>
 
-									<xs:element name="start" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
-									<xs:element name="end" type="versionedValueSet" minOccurs="0" maxOccurs="unbounded" />
-									<xs:element name="data" type="versionedValueSet" minOccurs="1" maxOccurs="unbounded" />
+									<xs:element name="start" type="versionedValueSet" minOccurs="0" maxOccurs="1" />
+									<xs:element name="end" type="versionedValueSet" minOccurs="0" maxOccurs="1" />
+									<xs:element name="data" type="versionedValueSet" minOccurs="1" maxOccurs="1" />
 						
 								</xs:sequence>
 

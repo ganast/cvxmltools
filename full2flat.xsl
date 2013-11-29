@@ -18,6 +18,17 @@ You should have received a copy of the GNU General Public License along with
 cvxmltools. If not, see http://www.gnu.org/licenses/.
 -->
 
+<!-- TODO: Think of an elegant way to handle elements that are parents of leaf
+"value" elements that must be omitted from the output because, after processing
+of their children "value" elements is complete, they will end-up empty as a
+result of all of their children "value" elements having a "lang" attribute of
+a value other than the one specified. Note that such elements may or may not
+have version attributes as well as other, arbitrary attributes. Consider a set
+of templates matching all required path combinations and calling a named
+template to rebuild the matched element with all required attributes (that is,
+all but "version") and the required CDATA (that is, a value based on the CDATA
+of "value" children elements with the specified "lang" attribute value). -->
+
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 <xsl:output method="xml" indent="yes"/>
