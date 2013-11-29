@@ -47,7 +47,9 @@ Bleh. -->
 <xsl:apply-templates />
 </xsl:template>
 
-<xsl:template match="/cv">\documentclass[12pt]{article}
+<xsl:template match="/cv">\documentclass[10pt]{article}
+
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
 
 \begin{document}
 
