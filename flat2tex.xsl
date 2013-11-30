@@ -51,6 +51,8 @@ Bleh. -->
 
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
 
+\setlength{\parindent}{0cm}
+
 \begin{document}
 
 \title{<xsl:value-of select="data/name/firstname" /><xsl:text> </xsl:text><xsl:value-of select="data/name/lastname" />}
@@ -68,7 +70,7 @@ Bleh. -->
 
 <!-- Personal data -->
 
-<xsl:template match="/cv/data">\section{Personal data}
+<xsl:template match="/cv/data">\section*{Personal data}
 
 <xsl:apply-templates select="name" />
 <!-- TODO: Birthday.-->
@@ -116,7 +118,7 @@ list. -->
 
 <!-- Education -->
 
-<xsl:template match="/cv/education">\section{Education}
+<xsl:template match="/cv/education">\section*{Education}
 
 \begin{itemize}<xsl:apply-templates select="degree"/>
 \end{itemize}<xsl:text>&#10;&#10;</xsl:text>
@@ -132,7 +134,7 @@ list. -->
 
 <!-- Languages -->
 
-<xsl:template match="/cv/languages">\section{Languages}
+<xsl:template match="/cv/languages">\section*{Languages}
 
 \begin{itemize}<xsl:apply-templates select="language"/>
 \end{itemize}
@@ -149,7 +151,7 @@ list. -->
 <!-- Additional sections -->
 
 <xsl:template match="/cv/section">
-\section{<xsl:value-of select="title" />}
+\section*{<xsl:value-of select="title" />}
 
 \begin{itemize}<xsl:apply-templates select="item"/>
 \end{itemize}
