@@ -50,8 +50,10 @@ Bleh. -->
 <xsl:template match="/cv">\documentclass[10pt]{article}
 
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{enumitem}
 
 \setlength{\parindent}{0cm}
+\setlist[itemize]{leftmargin=1.5em}
 
 \begin{document}
 
