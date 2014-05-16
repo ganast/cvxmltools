@@ -1,4 +1,4 @@
-:: Copyright © 2013 George Anastassakis (anastas@unipi.gr)
+:: Copyright © 2014 George Anastassakis (anastas@unipi.gr)
 ::
 :: This file is part of cvxmltools.
 ::
@@ -17,7 +17,6 @@
 @echo off
 
 if "%1"=="" (
-	echo ERROR: Bad arguments!
 	echo Syntax: flat2tex ^<IN^>
 	goto done
 )

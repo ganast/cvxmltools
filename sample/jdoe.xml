@@ -29,8 +29,7 @@ available on the Memory Alpha Wiki at http://memory-alpha.org.
 
 <cv uri="http://example.com/john.doe"
 	date="2014-05-16"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="D:\Data\02 - Current Projects\CV\cvxmltools\full.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 	<!-- Personal data -->
 	<data>

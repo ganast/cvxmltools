@@ -1,4 +1,4 @@
-:: Copyright © 2013 George Anastassakis (anastas@unipi.gr)
+:: Copyright © 2014 George Anastassakis (anastas@unipi.gr)
 ::
 :: This file is part of cvxmltools.
 ::
@@ -16,21 +16,14 @@
 
 @echo off
 
-if "%1"=="" goto badargs
-if "%2"=="" goto badargs
-if "%3"=="" goto badargs
+if "%3"=="" (
+	echo Syntax: full2flat ^<IN^> ^<VERSION^> ^<LANG^>
+	goto done
+)
 
 set XALAN_HOME=lib/xalan-j_2_7_1
 set XALAN_CP=%XALAN_HOME%/xalan.jar;%XALAN_HOME%/serializer.jar;%XALAN_HOME%/xml-apis.jar;%XALAN_HOME%/xercesImpl.jar
 
 java -cp "%XALAN_CP%" org.apache.xalan.xslt.Process -IN %1 -XSL full2flat.xsl -OUT %1.%2.%3.xml -PARAM version %2 -PARAM lang %3
-
-goto done
-
-:badargs
-
-echo ERROR: Bad arguments!
-echo Syntax: full2flat ^<IN^> ^<VERSION^> ^<LANG^>
-goto done
 
 :done
