@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-Copyright © 2014 George Anastassakis (anastas@unipi.gr)
+Copyright © 2013-2014 George Anastassakis (anastas@unipi.gr)
 
 This file is part of cvxmltools.
 
