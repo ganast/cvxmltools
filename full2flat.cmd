@@ -16,15 +16,24 @@
 
 @echo off
 
-if "%3"=="" (
-	echo Syntax: full2flat ^<IN^> ^<VERSION^> ^<LANG^>
-	echo Please supply a filename without an extension as .XML will be assumed by default.
-	goto done
+if "%3"=="" goto syntax
+
+if not exist "%1.xml" (
+	echo ERROR: %1.xml not found!
+	goto syntax
 )
 
 set XALAN_HOME=lib/xalan-j_2_7_1
 set XALAN_CP=%XALAN_HOME%/xalan.jar;%XALAN_HOME%/serializer.jar;%XALAN_HOME%/xml-apis.jar;%XALAN_HOME%/xercesImpl.jar
 
 java -cp "%XALAN_CP%" org.apache.xalan.xslt.Process -IN %1.xml -XSL full2flat.xsl -OUT %1.%2.%3.xml -PARAM version %2 -PARAM lang %3
+
+goto done
+
+:syntax
+
+echo Syntax: full2flat ^<IN^> ^<VERSION^> ^<LANG^>
+echo Please supply a filename without an extension, as .XML will be assumed by default.
+goto done
 
 :done

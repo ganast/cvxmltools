@@ -9,6 +9,24 @@ Installation, running, etc.
 Please watch this space for more information and details on installation,
 running, usage scenarios, release notes, etc.
 
+Known issues
+------------
+
+- Plain double quotes are neither rendered verbatim nor processed in any way. As
+a result they are always rendered as closing curly double quotes, which is ugly.
+For the time being there is no way to overcome this than either manually edit
+generated flat files, replacing double quotes with `` and '' as necessary (which
+is, of course, a solution far from ideal, if a solution at all) or use `` and ''
+in the original full file (which is rather unacceptable as it binds the file to
+LaTeX, which is against the very rationale behind cvxmltools). In other words,
+there is no actual solution for the time being, so stay tuned.
+
+- Multilingual support has not been adequately tested. Make sure your rendering
+tool of choice is properly configured for your target languages.
+
+- Full Unicode support has not been adequately tested. Make sure your rendering
+tool of choice is properly configured to handle Unicode characters.
+
 License
 -------
 
