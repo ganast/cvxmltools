@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-Copyright © 2013-2014 George Anastassakis (anastas@unipi.gr)
+Copyright © 2013-2015 George Anastassakis (anastas@unipi.gr)
 
 This file is part of cvxmltools.
 
@@ -44,6 +44,8 @@ cvxmltools. If not, see http://www.gnu.org/licenses/.
 				<xs:complexType>
 
 					<xs:all>
+
+						<xs:element name="title" type="versionedValueSet" minOccurs="1" maxOccurs="1" />
 
 						<xs:element name="birthday" minOccurs="0" type="versionedValueSet" />
 
@@ -103,6 +105,8 @@ cvxmltools. If not, see http://www.gnu.org/licenses/.
 
 					<xs:sequence>
 
+						<xs:element name="title" type="versionedValueSet" minOccurs="1" maxOccurs="1" />
+
 						<xs:element name="degree" minOccurs="0" maxOccurs="unbounded">
 							<xs:complexType>
 
@@ -127,6 +131,8 @@ cvxmltools. If not, see http://www.gnu.org/licenses/.
 				<xs:complexType>
 
 					<xs:sequence>
+
+						<xs:element name="title" type="versionedValueSet" minOccurs="1" maxOccurs="1" />
 
 						<xs:element name="language" minOccurs="0" maxOccurs="unbounded">
 							<xs:complexType>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-Copyright © 2013-2014 George Anastassakis (anastas@unipi.gr)
+Copyright © 2013-2015 George Anastassakis (anastas@unipi.gr)
 
 This file is part of cvxmltools.
 
@@ -72,7 +72,7 @@ Bleh. -->
 
 <!-- Personal data -->
 
-<xsl:template match="/cv/data">\section*{Personal data}
+<xsl:template match="/cv/data">\section*{<xsl:value-of select="title" />}
 
 <xsl:apply-templates select="name" />
 <!-- TODO: Birthday.-->
@@ -120,7 +120,7 @@ list. -->
 
 <!-- Education -->
 
-<xsl:template match="/cv/education">\section*{Education}
+<xsl:template match="/cv/education">\section*{<xsl:value-of select="title" />}
 
 \begin{itemize}<xsl:apply-templates select="degree"/>
 \end{itemize}<xsl:text>&#10;&#10;</xsl:text>
@@ -136,7 +136,7 @@ list. -->
 
 <!-- Languages -->
 
-<xsl:template match="/cv/languages">\section*{Languages}
+<xsl:template match="/cv/languages">\section*{<xsl:value-of select="title" />}
 
 \begin{itemize}<xsl:apply-templates select="language"/>
 \end{itemize}

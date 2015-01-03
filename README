@@ -1,7 +1,7 @@
 cvxmltools is a set of tools for maintaining multi-version, multi-language CVs
 in XML and converting them to various formats (LaTeX, etc.)
 
-Copyright © 2013-2014 George Anastassakis (anastas@unipi.gr)
+Copyright © 2013-2015 George Anastassakis (anastas@unipi.gr)
 
 Installation, running, etc.
 ---------------------------
@@ -12,7 +12,7 @@ running, usage scenarios, release notes, etc.
 Known issues
 ------------
 
-- Plain double quotes are neither rendered verbatim nor processed in any way by
+- Plain double quotes are carried-over verbatim and not processed in any way by
 flat2tex. As result they are always typeset as closing curly double quotes,
 which is ugly. For the time being there is no way to overcome this than either
 manually edit generated flat files, replacing double quotes with `` and '' as

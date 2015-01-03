@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-Copyright © 2013-2014 George Anastassakis (anastas@unipi.gr)
+Copyright © 2013-2015 George Anastassakis (anastas@unipi.gr)
 
 This file is part of cvxmltools.
 
@@ -27,12 +27,15 @@ course details are loosely based on information pertaining to the Star Trek
 universe available on the Memory Alpha Wiki at http://memory-alpha.org.
 -->
 
-<cv uri="http://example.com/john.doe"
-	date="2014-05-16"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<cv uri="http://example.com/john.doe" date="2014-05-16" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\Data\02 - Current Projects\CV\cvxmltools\full.xsd">
 
 	<!-- Personal data -->
 	<data>
+	
+    <title>
+      <value lang="en">Personal data</value>
+      <value lang="el">Προσωπικά στοιχεία</value>
+    </title>
 
 		<name>
 			<firstname>
@@ -118,6 +121,11 @@ universe available on the Memory Alpha Wiki at http://memory-alpha.org.
 	<!-- Academic education -->
 	<education>
 
+    <title>
+      <value lang="en">Education</value>
+      <value lang="el">Ακαδημαϊκοί τίτλοι</value>
+    </title>
+
 		<degree>
 			<title>
 				<value>MSc in Temporal Mechanics</value>
@@ -162,6 +170,10 @@ universe available on the Memory Alpha Wiki at http://memory-alpha.org.
 
 	<!-- Languages -->
 	<languages>
+    <title>
+      <value lang="en">Languages</value>
+      <value lang="el">Γλώσσες</value>
+    </title>
 		<language>
 			<title>
 				<value lang="en">English</value>
