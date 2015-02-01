@@ -46,8 +46,8 @@ universe available on the Memory Alpha Wiki at http://memory-alpha.org.
 				<value lang="en">Doe</value>
 				<value lang="el">Ντο</value>
 			</lastname>
-			<suffix>
-			</suffix>
+			<!--suffix>
+			</suffix-->
 			<title>
 				<value lang="en">Dr</value>
 				<value lang="el">Δρ</value>
@@ -186,7 +186,7 @@ universe available on the Memory Alpha Wiki at http://memory-alpha.org.
 		<language>
 			<title>
 				<value lang="en">Klingon</value>
-				<value lang="el"></value>
+				<value lang="el">Κλίνγκον</value>
 			</title>
 			<degree>
 				<value>Imperial Certificate of Mastery</value>
