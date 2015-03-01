@@ -147,7 +147,7 @@ child element combinations. Not sure when preferable over approach 1. -->
 <xsl:template match="/cv/section/item">
   &lt;li&gt;<xsl:choose>
     <xsl:when test="start and end">
-      <xsl:value-of select="start" />--<xsl:value-of select="end" /><xsl:text>: </xsl:text>
+      <xsl:value-of select="start" />-<xsl:value-of select="end" /><xsl:text>: </xsl:text>
     </xsl:when>
     <xsl:when test="start">
       <xsl:value-of select="start" /><xsl:text>: </xsl:text>
