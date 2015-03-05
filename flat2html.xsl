@@ -23,7 +23,7 @@ Bleh. -->
 
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<xsl:output method="text" indent="no" />
+<xsl:output method="html" indent="yes" />
 
 <xsl:template name="formattedfullname"><xsl:value-of select="firstname" /><xsl:text> </xsl:text><xsl:value-of select="lastname" /></xsl:template>
 
@@ -47,34 +47,42 @@ Bleh. -->
 <xsl:apply-templates />
 </xsl:template>
 
-<xsl:template match="/cv">&lt;html&gt;
+<xsl:template match="/cv">
 
-&lt;head&gt;
-&lt;title&gt;<xsl:value-of select="data/name/firstname" /><xsl:text> </xsl:text><xsl:value-of select="data/name/lastname" /> - Curriculum Vitae&lt;/title&gt;
-&lt;meta charset="UTF-8"&gt;
-&lt;/head&gt;
+<html>
 
-&lt;body&gt;
+	<head>
+		<title><xsl:value-of select="data/name/firstname" /><xsl:text> </xsl:text><xsl:value-of select="data/name/lastname" /> - Curriculum Vitae</title>
+		<meta charset="UTF-8"></meta>
+	</head>
 
-&lt;h1&gt;<xsl:value-of select="data/name/firstname" /><xsl:text> </xsl:text><xsl:value-of select="data/name/lastname" />&lt;/h1&gt;
-&lt;h2&gt;Curriculum Vitae&lt;/h2&gt;
-&lt;h3&gt;<xsl:value-of select="@date" />&lt;/h3&gt;
+	<body>
 
-<xsl:apply-templates select="data" />
-<xsl:apply-templates select="education" />
-<xsl:apply-templates select="languages" />
-<xsl:apply-templates select="section" />&lt;/body&gt;
+		<h1><xsl:value-of select="data/name/firstname" /><xsl:text> </xsl:text><xsl:value-of select="data/name/lastname" /></h1>
+		<h1>Curriculum Vitae</h1>
+		<h1><xsl:value-of select="@date" /></h1>
+
+		<xsl:apply-templates select="data" />
+		<xsl:apply-templates select="education" />
+		<xsl:apply-templates select="languages" />
+		<xsl:apply-templates select="section" />
+
+	</body>
+
+</html>
 
 </xsl:template>
 
 <!-- Personal data -->
 
-<xsl:template match="/cv/data">&lt;h2&gt;<xsl:value-of select="title" />&lt;/h2&gt;
+<xsl:template match="/cv/data">
 
-&lt;p&gt;<xsl:apply-templates select="name" />&lt;br&gt;
+<h2><xsl:value-of select="title" /></h2>
+
+<xsl:apply-templates select="name" /><br/>
 <!-- TODO: Birthday.-->
-<xsl:apply-templates select="address" />&lt;br&gt;
-<xsl:apply-templates select="contact" />&lt;/p&gt;<xsl:text>&#10;&#10;</xsl:text>
+<xsl:apply-templates select="address" /><br/>
+<xsl:apply-templates select="contact" /><br/>
 </xsl:template>
 
 <!-- Approach 1: Multiple templates matching all possible paths corresponding to
@@ -88,8 +96,8 @@ all child element combinations. Only acceptable when combinations are few. -->
 child element combinations. To only check for existing child elements instead of
 non-empty child elements, omit the empty string comparison part. -->
 <xsl:template match="/cv/data/address">
-<xsl:if test="title != ''"><xsl:value-of select="title" />&lt;br&gt;<xsl:text>&#10;</xsl:text></xsl:if>
-<xsl:if test="organization != ''"><xsl:value-of select="organization" />&lt;br&gt;<xsl:text>&#10;</xsl:text></xsl:if>
+<xsl:if test="title != ''"><xsl:value-of select="title" /><br/></xsl:if>
+<xsl:if test="organization != ''"><xsl:value-of select="organization" /><br/></xsl:if>
 <xsl:if test="street != ''"><xsl:value-of select="street" /></xsl:if>
 <xsl:if test="city != ''"><xsl:if test="street != ''">, </xsl:if><xsl:value-of select="city" /></xsl:if>
 <xsl:if test="postcode != ''"><xsl:if test="street != '' or city != ''">, </xsl:if><xsl:value-of select="postcode" /></xsl:if>
@@ -97,9 +105,10 @@ non-empty child elements, omit the empty string comparison part. -->
 </xsl:template>
 
 <xsl:template match="/cv/data/contact">
-<xsl:apply-templates select="email" />&lt;br&gt;
-<xsl:apply-templates select="telephone" />&lt;br&gt;
-<xsl:apply-templates select="homepage" />&lt;br&gt;</xsl:template>
+<xsl:apply-templates select="email" /><br/>
+<xsl:apply-templates select="telephone" /><br/>
+<xsl:apply-templates select="homepage" />
+</xsl:template>
 
 <!-- Template-based handling of multiple children based on position in children
 list. -->
@@ -112,51 +121,62 @@ list. -->
 
 <!-- Education -->
 
-<xsl:template match="/cv/education">&lt;h2&gt;<xsl:value-of select="title" />&lt;/h2&gt;
-
-&lt;ul&gt;
-<xsl:apply-templates select="degree"/>&lt;/ul&gt;<xsl:text>&#10;&#10;</xsl:text>
+<xsl:template match="/cv/education">
+<h2><xsl:value-of select="title" /></h2>
+<ul>
+<xsl:apply-templates select="degree"/>
+</ul>
 </xsl:template>
 
 <!-- Trivial application of approach 1 again. -->
-<xsl:template match="/cv/education/degree">&lt;li&gt;<xsl:call-template name="formatteddegreetitle" /><xsl:call-template name="periodifneeded" />&lt;/li&gt;<xsl:text>&#10;</xsl:text></xsl:template>
-<xsl:template match="/cv/education/degree[note]">&lt;li&gt;<xsl:call-template name="formatteddegreetitle" /><xsl:call-template name="formatteddegreenote" /><xsl:call-template name="periodifneeded" />&lt;/li&gt;<xsl:text>&#10;</xsl:text></xsl:template>
+<xsl:template match="/cv/education/degree">
+<li><xsl:call-template name="formatteddegreetitle" /><xsl:call-template name="periodifneeded" /></li>
+</xsl:template>
+<xsl:template match="/cv/education/degree[note]">
+<li><xsl:call-template name="formatteddegreetitle" /><xsl:call-template name="formatteddegreenote" /><xsl:call-template name="periodifneeded" /></li>
+</xsl:template>
 
 <!-- Languages -->
 
-<xsl:template match="/cv/languages">&lt;h2&gt;<xsl:value-of select="title" />&lt;/h2&gt;
-
-&lt;ul&gt;
-<xsl:apply-templates select="language"/>&lt;/ul&gt;<xsl:text>&#10;&#10;</xsl:text>
+<xsl:template match="/cv/languages">
+<h2><xsl:value-of select="title" /></h2>
+<ul>
+<xsl:apply-templates select="language"/>
+</ul>
 </xsl:template>
 
 <!-- Trivial application of approach 1 again. -->
-<xsl:template match="/cv/languages/language">&lt;li&gt;<xsl:call-template name="formattedlanguagetitle" /><xsl:call-template name="periodifneeded" />&lt;/li&gt;<xsl:text>&#10;</xsl:text></xsl:template>
-<xsl:template match="/cv/languages/language[note]">&lt;li&gt;<xsl:call-template name="formattedlanguagetitle" /><xsl:call-template name="formattedlanguagenote" /><xsl:call-template name="periodifneeded" />&lt;/li&gt;<xsl:text>&#10;</xsl:text></xsl:template>
+<xsl:template match="/cv/languages/language">
+<li><xsl:call-template name="formattedlanguagetitle" /><xsl:call-template name="periodifneeded" /></li>
+</xsl:template>
+<xsl:template match="/cv/languages/language[note]">
+<li><xsl:call-template name="formattedlanguagetitle" /><xsl:call-template name="formattedlanguagenote" /><xsl:call-template name="periodifneeded" /></li>
+</xsl:template>
 
 <!-- Additional sections -->
 
-<xsl:template match="/cv/section">&lt;h2&gt;<xsl:value-of select="title" />&lt;/h2&gt;
-
-&lt;ul&gt;
+<xsl:template match="/cv/section"><h2><xsl:value-of select="title" /></h2>
+<ul>
 <xsl:apply-templates select="item"/>
-&lt;/ul&gt;<xsl:text>&#10;&#10;</xsl:text>
+</ul>
 </xsl:template>
 
 <!-- Approach 3: Single template and further use of xsl:choose for all possible
 child element combinations. Not sure when preferable over approach 1. -->
 <xsl:template match="/cv/section/item">
-  &lt;li&gt;<xsl:choose>
-    <xsl:when test="start and end">
-      <xsl:value-of select="start" />-<xsl:value-of select="end" /><xsl:text>: </xsl:text>
-    </xsl:when>
-    <xsl:when test="start">
-      <xsl:value-of select="start" /><xsl:text>: </xsl:text>
-    </xsl:when>
-    <xsl:when test="end">
-      Until <xsl:value-of select="end" /><xsl:text>: </xsl:text>
-    </xsl:when>
-  </xsl:choose><xsl:value-of select="data" /><xsl:call-template name="periodifneeded" />&lt;/li&gt;<xsl:text>&#10;</xsl:text>
+  <li>
+	<xsl:choose>
+	  <xsl:when test="start and end">
+	    <xsl:value-of select="start" />-<xsl:value-of select="end" /><xsl:text>: </xsl:text>
+	  </xsl:when>
+      <xsl:when test="start">
+        <xsl:value-of select="start" /><xsl:text>: </xsl:text>
+      </xsl:when>
+      <xsl:when test="end">
+        Until <xsl:value-of select="end" /><xsl:text>: </xsl:text>
+      </xsl:when>
+    </xsl:choose><xsl:value-of select="data" /><xsl:call-template name="periodifneeded" />
+  </li>
 </xsl:template>
 
 </xsl:stylesheet>
