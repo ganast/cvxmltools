@@ -85,14 +85,15 @@ all child element combinations. Only acceptable when combinations are few. -->
 <xsl:template match="/cv/data/name[title and suffix]"><xsl:value-of select="title" /><xsl:text> </xsl:text><xsl:call-template name="formattedfullname" /><xsl:text> </xsl:text><xsl:value-of select="suffix" /></xsl:template>
 
 <!-- Approach 2: Conditional handling of numerous, strictly-ordered optional
-child element combinations. -->
+child element combinations. To only check for existing child elements instead of
+non-empty child elements, omit the empty string comparison part. -->
 <xsl:template match="/cv/data/address">
-<xsl:if test="title"><xsl:value-of select="title" />&lt;br&gt;<xsl:text>&#10;</xsl:text></xsl:if>
-<xsl:if test="organization"><xsl:value-of select="organization" />&lt;br&gt;<xsl:text>&#10;</xsl:text></xsl:if>
-<xsl:if test="street"><xsl:value-of select="street" /></xsl:if>
-<xsl:if test="city"><xsl:if test="street">, </xsl:if><xsl:value-of select="city" /></xsl:if>
-<xsl:if test="postcode"><xsl:if test="street or city">, </xsl:if><xsl:value-of select="postcode" /></xsl:if>
-<xsl:if test="country"><xsl:if test="street or city or postcode">, </xsl:if><xsl:value-of select="country" /></xsl:if>
+<xsl:if test="title != ''"><xsl:value-of select="title" />&lt;br&gt;<xsl:text>&#10;</xsl:text></xsl:if>
+<xsl:if test="organization != ''"><xsl:value-of select="organization" />&lt;br&gt;<xsl:text>&#10;</xsl:text></xsl:if>
+<xsl:if test="street != ''"><xsl:value-of select="street" /></xsl:if>
+<xsl:if test="city != ''"><xsl:if test="street != ''">, </xsl:if><xsl:value-of select="city" /></xsl:if>
+<xsl:if test="postcode != ''"><xsl:if test="street != '' or city != ''">, </xsl:if><xsl:value-of select="postcode" /></xsl:if>
+<xsl:if test="country != ''"><xsl:if test="street != '' or city != '' or postcode != ''">, </xsl:if><xsl:value-of select="country" /></xsl:if>
 </xsl:template>
 
 <xsl:template match="/cv/data/contact">
