@@ -117,7 +117,7 @@ list. -->
 <xsl:template match="/cv/data/contact/telephone[position() = 1]"><xsl:call-template name="formattedtelephone" /></xsl:template>
 <xsl:template match="/cv/data/contact/telephone[position() > 1]">, <xsl:call-template name="formattedtelephone" /></xsl:template>
 <xsl:template match="/cv/data/contact/homepage[position() = 1]"><xsl:call-template name="formattedhomepage" /></xsl:template>
-<xsl:template match="/cv/data/contact/homepage[position() > 1]">, <xsl:call-template name="formattedhomepage" /></xsl:template>
+<xsl:template match="/cv/data/contact/homepage[position() > 1]"><br /><xsl:call-template name="formattedhomepage" /></xsl:template>
 
 <!-- Education -->
 
