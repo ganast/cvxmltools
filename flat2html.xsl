@@ -54,13 +54,13 @@ Bleh. -->
 	<head>
 		<title><xsl:value-of select="data/name/firstname" /><xsl:text> </xsl:text><xsl:value-of select="data/name/lastname" /> - Curriculum Vitae</title>
 		<meta charset="UTF-8"></meta>
+		<link rel="stylesheet" type="text/css" href="styles.css" />
 	</head>
 
 	<body>
 
 		<h1><xsl:value-of select="data/name/firstname" /><xsl:text> </xsl:text><xsl:value-of select="data/name/lastname" /></h1>
-		<h1>Curriculum Vitae</h1>
-		<h1><xsl:value-of select="@date" /></h1>
+		<div class="subtitle">Curriculum Vitae, <xsl:value-of select="@date" /></div>
 
 		<xsl:apply-templates select="data" />
 		<xsl:apply-templates select="education" />
